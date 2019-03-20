@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="full">
+
+	<property name="doc.dir"       value="docs"/> 
+    <property name="src.dir"       value="src"/> 	
+	<property name="build.dir"     value="antbin"/>
+    <property name="jar.dir"       value="${build.dir}/jar"/>
+	
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+		<delete dir="${doc.dir}"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="${build.dir}"/>
+        <javac target="1.8" source="1.8" includeantruntime="false" srcdir="${src.dir}" destdir="${build.dir}"/>
+    </target>
+
+	<!-- Generation of jars -->
+    <target name="jar" depends="compile">
+        <mkdir dir="${jar.dir}"/>
+        <jar destfile="${jar.dir}/LogicDevsQueryGen.jar">
+            <manifest>
+                <attribute name="Main-Class" value="LogicDevsQueryGen"/>
+            </manifest>
+            <fileset file="${build.dir}/*class"/>
+            <fileset file="${src.dir}/Open16.gif" />
+		</jar>
+    </target>
+	 
+	<!-- Full clean build (including jars and javadoc) -->
+	<target name="full" depends="clean,jar"/>
+</project>

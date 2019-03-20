@@ -8,7 +8,7 @@ Below is the work flow of the program:
 * Specify name for the output file (to contain SQL queries). 
 * Select parameters to be used in queries. 
   ![Select ComboBox value for that][3]  
-* Press "Generate!" button. 
+* Press "Generate!" button.<br /> 
   ![This is the button in the bottom][4]  
 
  [1]: src/Step1.gif
